@@ -1,0 +1,18 @@
+version: '3.5'
+
+volumes:
+  pgdata:
+
+services:
+  postgres:
+    container_name: test-task-postgres
+    image: postgres:13-alpine
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5562:5432"
+    environment:
+      - LC_ALL=C.UTF-8
+      - POSTGRES_USER=testtask
+      - POSTGRES_DB=testtask
+      - POSTGRES_PASSWORD=testtask
